@@ -1,3 +1,7 @@
+/*
+    Adapted from here
+    https://github.com/iotaledger/ccurl/blob/master/src/lib/pearl_diver.c
+*/
 #include "pearl_diver.h"
 #include "constants.h"
 #include "hash.h"
@@ -21,52 +25,18 @@ typedef struct {
   PearlDiver *ctx;
 } PDThread;
 
-void dumpArray(char* name, char* arr, int len) {
-  int i;
-  printf("\n=%s==============================================================="
-          "========\n",
-          name);
-  printf("len: %d\n\n", len);
-  for (i = 0; i < len; i++) {
-    printf("%d", arr[i]);
-    if (i < len - 1) {
-      printf(", ");
-    }
-  }
-  printf("\n=========================================================="
-                  "==============\n");
-}
-
-void dumpArray64(char* name, long int* arr, int len) {
-  int i;
-  printf("\n=%s==============================================================="
-          "========\n",
-          name);
-  printf("len: %d\n\n", len);
-  for (i = 0; i < len; i++) {
-    printf("%ld", arr[i]);
-    if (i < len - 1) {
-      printf(", ");
-    }
-  }
-  printf("\n=========================================================="
-                  "==============\n");
-}
-
 void *find_nonce(void *data);
 
 void pd_search(PearlDiver *ctx, curl_t *const curl,
-               const int min_weight_magnitude) {
+               const int min_weight_magnitude, int numberOfThreads) {
   int k, thread_count;
 
-  printf("Inside pd_search %d\n", min_weight_magnitude);
-  dumpArray("curl", (char *)curl->state, STATE_LENGTH);
   if (min_weight_magnitude < 0 || min_weight_magnitude > HASH_LENGTH) {
     ctx->status = PD_INVALID;
 
-    throw("Invalid minWeightMagniture %d", min_weight_magnitude);
+    fprintf(stderr, "Invalid minWeightMagnitude %d", min_weight_magnitude);
 
-    return null;
+    return;
   }
 
   ctx->status = PD_SEARCHING;
@@ -74,8 +44,9 @@ void pd_search(PearlDiver *ctx, curl_t *const curl,
   States states;
   pd_search_init(&states, curl, HASH_LENGTH - NONCE_LENGTH);
 
+  // We are not currently building with USE_PTHREADS=1 so this will always
+  // return 0 for thread support
   ctx->hasThreadingSupport = emscripten_has_threading_support();
-  printf("Has threading support %d.\n", ctx->hasThreadingSupport);
 
   if (ctx->hasThreadingSupport) {
     if (numberOfThreads <= 0) {
@@ -90,7 +61,6 @@ void pd_search(PearlDiver *ctx, curl_t *const curl,
 
     PDThread pdthreads[numberOfThreads];
     thread_count = 0;
-    printf("Starting %d search threads.\n", numberOfThreads);
     while (thread_count < numberOfThreads) {
 
       pdthreads[thread_count] =
@@ -104,17 +74,12 @@ void pd_search(PearlDiver *ctx, curl_t *const curl,
       thread_count++;
     }
 
-    printf("Threads Created.\n");
-
     for (k = 0; k < thread_count; k++) {
       if (tid[k]) {
         pthread_join(tid[k], NULL);
       }
     }
-
-    printf("Threads Completed.\n");
   } else {
-    printf("No thread support.\n");
     PDThread singleThread;
     singleThread.states = &states, singleThread.trits = curl->state,
     singleThread.min_weight_magnitude = min_weight_magnitude,
@@ -125,7 +90,6 @@ void pd_search(PearlDiver *ctx, curl_t *const curl,
 }
 
 void pd_search_init(States *states, curl_t *curl, size_t offset) {
-  printf("Inside pd_search_init\n");
   int i;
   for (i = 0; i < STATE_LENGTH; i++) {
     switch (curl->state[i]) {
@@ -181,7 +145,6 @@ char ctxStatusEq(PDThread *thread, PearlDiver *ctx, int cmp) {
 }
 
 void *find_nonce(void *data) {
-  printf("Inside find_nonce\n");
   PDThread *my_thread = (PDThread *)data;
 
   PearlDiver *ctx = my_thread->ctx;
@@ -210,9 +173,8 @@ void *find_nonce(void *data) {
   memset(scratchpadLow, 0, STATE_LENGTH * sizeof(bc_trit_t));
   memset(scratchpadHigh, 0, STATE_LENGTH * sizeof(bc_trit_t));
 
-    int loopcount = 0;
+  int loopcount = 0;
   while (ctxStatusEq(my_thread, ctx, PD_SEARCHING)) {
-      // printf("LoopCount %d\n", loopcount++);
     pd_increment(midStateCopyLow, midStateCopyHigh, NONCE_INCREMENT_START,
                  HASH_LENGTH);
     memcpy(stateLow, midStateCopyLow, STATE_LENGTH * sizeof(bc_trit_t));
@@ -222,8 +184,6 @@ void *find_nonce(void *data) {
     if ((nonce_probe = is_found_fast(stateLow, stateHigh,
                                      my_thread->min_weight_magnitude)) == 0)
       continue;
-
-    printf("Found Nonce %lld.\n", nonce_probe);
 
     shift = __builtin_ctzll(nonce_probe);
     nonce_output = 1L << shift;

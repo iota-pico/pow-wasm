@@ -1,35 +1,22 @@
+/*
+    Adapted from here
+    https://github.com/iotaledger/ccurl/blob/master/src/lib/exports_cl.c
+*/
+
 #include <stdio.h>
 
 #include "ccurl.h"
 #include "curl.h"
-#include "pearl_diver.h"
 #include "hash.h"
+#include "pearl_diver.h"
 #include "util/converter.h"
 
-void dumpArray2(char* name, char* arr, int len) {
-  int i;
-  printf("\n=%s==============================================================="
-          "========\n",
-          name);
-  printf("len: %d\n\n", len);
-  for (i = 0; i < len; i++) {
-    printf("%d", arr[i]);
-    if (i < len - 1) {
-      printf(", ");
-    }
-  }
-  printf("\n=========================================================="
-                  "==============\n");
-}
-
 char *ccurl_pow(const char *trytes, int minWeightMagnitude) {
-    init_converter();
-    printf("trytes %s\n", trytes);
+  init_converter();
+
   char *buf = NULL;
   size_t len = strnlen(trytes, TRANSACTION_LENGTH / 3);
   char *trits = trits_from_trytes(trytes, len);
-
-  dumpArray2("trits", trits, len);
 
   curl_t curl;
   init_curl(&curl);
@@ -37,8 +24,8 @@ char *ccurl_pow(const char *trytes, int minWeightMagnitude) {
   memcpy(&curl.state, &trits[TRANSACTION_LENGTH - HASH_LENGTH],
          HASH_LENGTH * sizeof(char));
 
-PearlDiver pd;
-  pd_search(&pd, &curl, minWeightMagnitude);
+  PearlDiver pd;
+  pd_search(&pd, &curl, minWeightMagnitude, -1);
 
   memcpy(&trits[TRANSACTION_LENGTH - HASH_LENGTH], &curl.state,
          HASH_LENGTH * sizeof(char));

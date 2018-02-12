@@ -1,3 +1,7 @@
+/*
+    Adapted from here
+    https://github.com/iotaledger/ccurl/blob/master/src/lib/constants.h
+*/
 #ifndef __CONSTANTS_H__
 #define __CONSTANTS_H__
 

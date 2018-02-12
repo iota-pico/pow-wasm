@@ -1,11 +1,13 @@
-
+/*
+    Adapted from here
+    https://github.com/iotaledger/ccurl/blob/master/src/lib/curl.h
+*/
 #ifndef CURL_H
 #define CURL_H
 #include "hash.h"
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-
 
 typedef struct { char state[STATE_LENGTH]; } curl_t;
 

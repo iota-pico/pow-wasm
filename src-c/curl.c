@@ -1,3 +1,7 @@
+/*
+    Adapted from here
+    https://github.com/iotaledger/ccurl/blob/master/src/lib/curl.c
+*/
 #include "curl.h"
 #include "constants.h"
 #include "hash.h"

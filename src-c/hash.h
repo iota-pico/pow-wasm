@@ -1,3 +1,7 @@
+/*
+    Adapted from here
+    https://github.com/iotaledger/ccurl/blob/master/src/lib/hash.h
+*/
 #ifndef HASH_H
 #define HASH_H
 

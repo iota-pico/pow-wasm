@@ -1,4 +1,7 @@
-
+/*
+    Adapted from here
+    https://github.com/iotaledger/ccurl/blob/master/src/lib/pearl_diver.h
+*/
 #ifndef PEARLDIVER_H
 #define PEARLDIVER_H
 
