@@ -1,0 +1,1 @@
+emcc -s USE_PTHREADS=0 -s WASM=1 -s "EXPORTED_FUNCTIONS=['_ccurl_pow']"  -s "EXTRA_EXPORTED_RUNTIME_METHODS=['ccall', 'cwrap']" ../src-c/ccurl.c ../src-c/curl.c ../src-c/pearl_diver.c ../src-c/util/converter.c -o ../dist/iota-pico-pow-wasm.js
