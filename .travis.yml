@@ -8,6 +8,7 @@ addons:
     - sources: ['ubuntu-toolchain-r-test']
     - packages: ['cmake', 'nodejs', 'g++-5']
 install:
+  - cd ..
   - wget https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz
   - tar -xvf emsdk-portable.tar.gz
   - cd emsdk-portable
@@ -36,3 +37,4 @@ script:
 cache:
   directories:
     - "node_modules"
+    - "emsdk-portable"
