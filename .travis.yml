@@ -22,10 +22,11 @@ install:
 script:
   - cd ./tools/emsdk-portable/
   - chmod +x ./emsdk
-  - ./emsdk update
-  - ./emsdk install latest
-  - ./emsdk activate latest
-  - source ./emsdk_env.sh
+  - chmod +x ./emsdk_env.sh
+  - ./emsdk update || travis_terminate 1
+  - ./emsdk install latest || travis_terminate 1
+  - ./emsdk activate latest || travis_terminate 1
+  - source ./emsdk_env.sh || travis_terminate 1
   - cd ../../
   - npm run build
   - npm run docs
