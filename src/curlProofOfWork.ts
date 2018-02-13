@@ -20,7 +20,7 @@ export class CurlProofOfWork implements ICurlProofOfWork {
     public async initialize(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
             if (typeof WebAssembly === undefined) {
-                reject(new CoreError("No WebAssembly Support detected"));
+                reject(new CoreError("No WebAssembly support detected"));
             }
 
             const module = iotaPicoPowWasm();

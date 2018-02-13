@@ -20,7 +20,7 @@ class CurlProofOfWork {
     async initialize() {
         return new Promise((resolve, reject) => {
             if (typeof WebAssembly === undefined) {
-                reject(new coreError_1.CoreError("No WebAssembly Support detected"));
+                reject(new coreError_1.CoreError("No WebAssembly support detected"));
             }
             const module = iota_pico_pow_wasm_1.default();
             module.onRuntimeInitialized = () => {
