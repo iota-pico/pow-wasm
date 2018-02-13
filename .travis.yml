@@ -1,6 +1,12 @@
 language: node_js
 node_js:
   - 8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - libstdc++-4.9-dev
 install:
   - cd ../../
   - git clone --branch=$TRAVIS_BRANCH https://github.com/iotaeco/iota-pico-core.git iotaeco/iota-pico-core
@@ -35,3 +41,4 @@ script:
 cache:
   directories:
     - "node_modules"
+    - "tools"
