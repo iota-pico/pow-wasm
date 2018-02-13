@@ -21,6 +21,7 @@ install:
   - npm install
 script:
   - cd ./tools/emsdk-portable/
+  - chmod +x ./emsdk
   - ./emsdk update
   - ./emsdk install latest
   - ./emsdk activate latest
