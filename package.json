@@ -39,10 +39,11 @@
         "docs-generate": "typedoc --module commonjs --excludePrivate --theme markdown --readme none --hideGenerator --mode file --target es5 --exclude ./**/src/index.ts --out ./docs ./src",
         "docs": "npm-run-all docs-clean docs-generate",
         "security": "nsp check",
-        "dist": "npm-run-all build wasm test docs security",
+        "dist": "npm-run-all build test docs security",
         "wasm-clean": "rimraf ./wasm/*",
         "wasm-build": "cd src-c && emcc -s USE_PTHREADS=0 -s MODULARIZE=1 -s WASM=1 -s SINGLE_FILE=1 -s \"EXPORTED_FUNCTIONS=['_ccurl_pow']\" -s \"EXTRA_EXPORTED_RUNTIME_METHODS=['ccall', 'cwrap']\" ../src-c/ccurl.c ../src-c/curl.c ../src-c/pearl_diver.c ../src-c/util/converter.c -o ../wasm/iota-pico-pow-wasm.js",
-        "wasm": "npm-run-all wasm-clean wasm-build"
+        "wasm": "npm-run-all wasm-clean wasm-build",
+        "wasm-docker": "cd src-c && docker exec -it emcc -s USE_PTHREADS=0 -s MODULARIZE=1 -s WASM=1 -s SINGLE_FILE=1 -s \"EXPORTED_FUNCTIONS=['_ccurl_pow']\" -s \"EXTRA_EXPORTED_RUNTIME_METHODS=['ccall', 'cwrap']\" ../src-c/ccurl.c ../src-c/curl.c ../src-c/pearl_diver.c ../src-c/util/converter.c -o ../wasm/iota-pico-pow-wasm.js"
     },
     "dependencies": {
         "@iota-pico/core": "^0.6.1",
