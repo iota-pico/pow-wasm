@@ -4,8 +4,10 @@ node_js:
 sudo:
   - required
 install:
-  - sudo apt-get update
   - sudo apt-get install libstdc++6
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get update
+  - sudo apt-get upgrade
   - cd ../../
   - git clone --branch=$TRAVIS_BRANCH https://github.com/iotaeco/iota-pico-core.git iotaeco/iota-pico-core
   - cd iotaeco/iota-pico-core
