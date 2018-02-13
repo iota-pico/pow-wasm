@@ -15,6 +15,7 @@ install:
   - ./emsdk update
   - ./emsdk install latest
   - ./emsdk activate latest
+  - source ./emsdk_env.sh
   - cd ..
   - git clone --branch=$TRAVIS_BRANCH https://github.com/iotaeco/iota-pico-core.git iotaeco/iota-pico-core
   - cd iotaeco/iota-pico-core
