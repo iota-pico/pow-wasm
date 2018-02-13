@@ -4,6 +4,8 @@ node_js:
 sudo:
   - required
 install:
+  - sudo apt-get update
+  - sudo apt-get install libstdc++6
   - cd ../../
   - git clone --branch=$TRAVIS_BRANCH https://github.com/iotaeco/iota-pico-core.git iotaeco/iota-pico-core
   - cd iotaeco/iota-pico-core
@@ -22,7 +24,6 @@ install:
   - npm link @iota-pico/core @iota-pico/data @iota-pico/crypto
   - npm install
 script:
-  - sudo apt-get install libstdc++-6
   - cd ./tools/emsdk-portable/
   - chmod +x ./emsdk
   - chmod +x ./emsdk_env.sh
