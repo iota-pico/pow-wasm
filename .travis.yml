@@ -26,8 +26,7 @@ install:
   - npm link @iota-pico/core @iota-pico/data @iota-pico/crypto
   - npm install
 script:
-  - cd src-c
-  - docker exec -it emscripten emcc ccurl.c curl.c pearl_diver.c util/converter.c -o ../wasm/iota-pico-pow-wasm.js -s USE_PTHREADS=0 -s MODULARIZE=1 -s WASM=1 -s SINGLE_FILE=1 -s EXPORTED_FUNCTIONS='["_ccurl_pow"]' -s EXTRA_EXPORTED_RUNTIME_METHODS='["ccall", "cwrap"]' || travis_terminate 1
+  - docker exec -it emscripten emcc /home/travis/build/iotaeco/iota-pico-pow-wasm/src-c/ccurl.c /home/travis/build/iotaeco/iota-pico-pow-wasm/src-c/curl.c /home/travis/build/iotaeco/iota-pico-pow-wasm/src-c/pearl_diver.c /home/travis/build/iotaeco/iota-pico-pow-wasm/src-c/util/converter.c -o /home/travis/build/iotaeco/iota-pico-pow-wasm/wasm/iota-pico-pow-wasm.js -s USE_PTHREADS=0 -s MODULARIZE=1 -s WASM=1 -s SINGLE_FILE=1 -s EXPORTED_FUNCTIONS='["_ccurl_pow"]' -s EXTRA_EXPORTED_RUNTIME_METHODS='["ccall", "cwrap"]' || travis_terminate 1
   - npm run dist || travis_terminate 1
 cache:
   directories:
