@@ -3,11 +3,18 @@ node_js:
   - 8
 sudo:
   - required
+addons:
+  - apt:
+    - sources: ['ubuntu-toolchain-r-test']
+    - packages: ['cmake', 'nodejs', 'g++-5']
 install:
-  - sudo apt-get install libstdc++6
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo apt-get update
-  - cd ../../
+  - wget https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz
+  - tar -xvf emsdk-portable.tar.gz
+  - cd emsdk-portable
+  - ./emsdk update
+  - ./emsdk install latest
+  - ./emsdk activate latest
+  - cd ..
   - git clone --branch=$TRAVIS_BRANCH https://github.com/iotaeco/iota-pico-core.git iotaeco/iota-pico-core
   - cd iotaeco/iota-pico-core
   - npm link
@@ -25,19 +32,7 @@ install:
   - npm link @iota-pico/core @iota-pico/data @iota-pico/crypto
   - npm install
 script:
-  - cd ./tools/emsdk-portable/
-  - chmod +x ./emsdk
-  - chmod +x ./emsdk_env.sh
-  - ./emsdk update || travis_terminate 1
-  - ./emsdk install latest || travis_terminate 1
-  - ./emsdk activate latest || travis_terminate 1
-  - source ./emsdk_env.sh || travis_terminate 1
-  - cd ../../
-  - npm run build
-  - npm run docs
-  - npm run security
-  - npm run wasm
+  - npm run dist
 cache:
   directories:
     - "node_modules"
-    - "tools"
