@@ -13,12 +13,14 @@ The libraries are written in TypeScript so are all strongly typed. The modules a
 ## Installation
 
 ```shell
-npm install @iota-pico/pow-wam
+npm install @iota-pico/pow-wasm
 ```
 
 ## POW WebAssembly
 
-The library contains the Curl proof of work algorithm as a WebAssembly module.
+The library contains the Curl proof of work algorithm as a WebAssembly module. 
+
+This is currenly only single threaded as emscripten support for threading relies on SharedArrayBuffer which is currently disabled in most browsers due to the Spectre vulnerability. See [https://kripken.github.io/emscripten-site/docs/porting/pthreads.html](https://kripken.github.io/emscripten-site/docs/porting/pthreads.html) for more details.
 
 ## Platform Abstraction Layers (PALs)
 
