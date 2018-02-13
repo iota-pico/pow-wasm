@@ -1,7 +1,7 @@
 {
     "name": "@iota-pico/pow-wasm",
-    "version": "0.6.0",
-    "description": "IOTA Pico Framework Proof Of Work Wasm",
+    "version": "0.6.1",
+    "description": "IOTA Pico Framework Proof Of Work WebAssembly",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
     "keywords": [
@@ -38,19 +38,20 @@
         "docs-clean": "rimraf ./docs/*",
         "docs-generate": "typedoc --module commonjs --excludePrivate --theme markdown --readme none --hideGenerator --mode file --target es5 --exclude ./**/src/index.ts --out ./docs ./src",
         "docs": "npm-run-all docs-clean docs-generate",
-        "security": "nsp check"
+        "security": "nsp check",
+        "dist": "npm-run-all build wasm test docs security",
+        "wasm-clean": "rimraf ./wasm/*",
+        "wasm-build": "cd src-c && emcc -s USE_PTHREADS=0 -s MODULARIZE=1 -s WASM=1 -s SINGLE_FILE=1 -s \"EXPORTED_FUNCTIONS=['_ccurl_pow']\" -s \"EXTRA_EXPORTED_RUNTIME_METHODS=['ccall', 'cwrap']\" ../src-c/ccurl.c ../src-c/curl.c ../src-c/pearl_diver.c ../src-c/util/converter.c -o ../wasm/iota-pico-pow-wasm.js",
+        "wasm": "npm-run-all wasm-clean wasm-build"
     },
     "dependencies": {
-        "@iota-pico/core": "^0.6.0",
-        "@iota-pico/crypto": "^0.6.0",
-        "@iota-pico/data": "^0.6.0",
-        "@types/node-fetch": "^1.6.7"
+        "@iota-pico/core": "^0.6.1",
+        "@iota-pico/crypto": "^0.6.1",
+        "@iota-pico/data": "^0.6.1"
     },
     "devDependencies": {
         "@types/chai": "^4.1.1",
-        "@types/ffi": "^0.1.0",
         "@types/mocha": "^2.2.46",
-        "@types/webassembly-js-api": "0.0.1",
         "chai": "^4.1.2",
         "mocha": "^5.0.0",
         "npm-run-all": "^4.1.2",
@@ -59,8 +60,8 @@
         "ts-node": "^4.1.0",
         "tslint": "^5.9.1",
         "tslint-microsoft-contrib": "^5.0.2",
-        "typedoc": "^0.9.0",
+        "typedoc": "^0.10.0",
         "typedoc-plugin-markdown": "^1.0.12",
-        "typescript": "^2.7.0-rc"
+        "typescript": "^2.7.1"
     }
 }

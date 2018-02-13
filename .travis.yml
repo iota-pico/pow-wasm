@@ -16,13 +16,20 @@ install:
   - cd iotaeco/iota-pico-crypto
   - npm link @iota-pico/core @iota-pico/data
   - npm link
-  - cd ../iota-pico-pow-nodejs
+  - cd ../iota-pico-pow-wasm
   - npm link @iota-pico/core @iota-pico/data @iota-pico/crypto
   - npm install
 script:
+  - cd ./tools/emsdk-portable/
+  - ./emsdk update
+  - ./emsdk install latest
+  - ./emsdk activate latest
+  - source ./emsdk_env.sh
+  - cd ../../
   - npm run build
   - npm run docs
   - npm run security
+  - npm run wasm
 cache:
   directories:
     - "node_modules"

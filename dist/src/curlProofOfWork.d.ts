@@ -16,5 +16,4 @@ export declare class CurlProofOfWork implements ICurlProofOfWork {
      * @returns The trytes produced by the proof of work.
      */
     pow(trytes: Trytes, minWeightMagnitude: number): Promise<Trytes>;
-    private loadWebAssembly(filename);
 }

@@ -1,8 +1,10 @@
-/// <reference types="webassembly-js-api" />
+/// <reference types="emscripten" />
 import { CoreError } from "@iota-pico/core/dist/error/coreError";
 import { NumberHelper } from "@iota-pico/core/dist/helpers/numberHelper";
 import { ICurlProofOfWork } from "@iota-pico/crypto/dist/interfaces/ICurlProofOfWork";
 import { Trytes } from "@iota-pico/data/dist/data/trytes";
+// @ts-ignore
+import iotaPicoPowWasm from "../wasm/iota-pico-pow-wasm";
 
 /**
  * CurlProofOfWork implementation using WebAssembly.
@@ -16,14 +18,17 @@ export class CurlProofOfWork implements ICurlProofOfWork {
      * Will throw an exception if the implementation is not supported.
      */
     public async initialize(): Promise<void> {
-        if (typeof WebAssembly === undefined) {
-            throw new CoreError("No WebAssembly Support detected");
-        }
+        return new Promise<void>((resolve, reject) => {
+            if (typeof WebAssembly === undefined) {
+                reject(new CoreError("No WebAssembly Support detected"));
+            }
 
-        await this.loadWebAssembly("../iota-pico-pow-wasm.wasm")
-            .then(instance => {
-                this._ccurlPow = instance.exports._ccurlPow;
-            });
+            const module = iotaPicoPowWasm();
+            module.onRuntimeInitialized = () => {
+                this._ccurlPow = module.cwrap("ccurl_pow", "string", ["string", "number"]);
+                resolve();
+             };
+        });
     }
 
     /**
@@ -46,25 +51,5 @@ export class CurlProofOfWork implements ICurlProofOfWork {
 
             resolve(Trytes.create(result));
         });
-    }
-
-    private async loadWebAssembly(filename: string): Promise<WebAssembly.Instance> {
-        return fetch(filename)
-            .then(response => response.arrayBuffer())
-            .then(buffer => WebAssembly.compile(buffer))
-            .then(module => {
-                const imports: { [id: string]: any } = {};
-                imports.env = imports.env || {};
-                imports.env.memoryBase = imports.env.memoryBase || 0;
-                imports.env.tableBase = imports.env.tableBase || 0;
-                if (!imports.env.memory) {
-                    imports.env.memory = new WebAssembly.Memory({ initial: 256 });
-                }
-                if (!imports.env.table) {
-                    imports.env.table =
-                        new WebAssembly.Table({ initial: 0, element: "anyfunc" });
-                }
-                return new WebAssembly.Instance(module, imports);
-            });
     }
 }
