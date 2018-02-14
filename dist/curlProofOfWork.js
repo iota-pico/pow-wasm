@@ -22,11 +22,17 @@ class CurlProofOfWork {
             if (typeof WebAssembly === undefined) {
                 reject(new coreError_1.CoreError("No WebAssembly support detected"));
             }
-            const module = iota_pico_pow_wasm_1.default();
+            const module = {};
             module.onRuntimeInitialized = () => {
                 this._ccurlPow = module.cwrap("ccurl_pow", "string", ["string", "number"]);
                 resolve();
             };
+            try {
+                iota_pico_pow_wasm_1.default(module);
+            }
+            catch (err) {
+                reject(new coreError_1.CoreError("There was a problem intializing the WebAssembly Module", undefined, err));
+            }
         });
     }
     /**

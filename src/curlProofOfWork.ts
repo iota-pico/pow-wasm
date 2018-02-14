@@ -23,11 +23,18 @@ export class CurlProofOfWork implements ICurlProofOfWork {
                 reject(new CoreError("No WebAssembly support detected"));
             }
 
-            const module = iotaPicoPowWasm();
+            const module: any = {};
+
             module.onRuntimeInitialized = () => {
                 this._ccurlPow = module.cwrap("ccurl_pow", "string", ["string", "number"]);
                 resolve();
-             };
+            };
+
+            try {
+                iotaPicoPowWasm(module);
+            } catch (err) {
+                reject(new CoreError("There was a problem intializing the WebAssembly Module", undefined, err));
+            }
         });
     }
 
