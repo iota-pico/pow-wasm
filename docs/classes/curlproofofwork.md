@@ -30,7 +30,7 @@ CurlProofOfWork implementation using WebAssembly.
 
 
 
-*Defined in [curlProofOfWork.ts:20](https://github.com/iotaeco/iota-pico-pow-wasm/blob/a44e6b5/src/curlProofOfWork.ts#L20)*
+*Defined in [curlProofOfWork.ts:20](https://github.com/iotaeco/iota-pico-pow-wasm/blob/44857bd/src/curlProofOfWork.ts#L20)*
 
 
 
@@ -55,7 +55,7 @@ ___
 
 
 
-*Defined in [curlProofOfWork.ts:47](https://github.com/iotaeco/iota-pico-pow-wasm/blob/a44e6b5/src/curlProofOfWork.ts#L47)*
+*Defined in [curlProofOfWork.ts:47](https://github.com/iotaeco/iota-pico-pow-wasm/blob/44857bd/src/curlProofOfWork.ts#L47)*
 
 
 
