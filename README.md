@@ -1,4 +1,5 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/iotaeco/iota-pico-pow-wasm/master/LICENSE) [![Build Status](https://travis-ci.org/iotaeco/iota-pico-pow-wasm.svg?branch=master)](https://travis-ci.org/iotaeco/iota-pico-pow-wasm) [![NSP Status](https://nodesecurity.io/orgs/iotaeco/projects/9a90b5ea-2754-4101-be27-53cbf58738f5/badge)](https://nodesecurity.io/orgs/iotaeco/projects/9a90b5ea-2754-4101-be27-53cbf58738f5)
+[![Coveralls](https://img.shields.io/coveralls/iotaeco/iota-pico-pow-wasm.svg)](https://coveralls.io/github/iotaeco/iota-pico-pow-wasm)
 
 # IOTA Pico Framework Proof Of Work for WebAssembly
 
