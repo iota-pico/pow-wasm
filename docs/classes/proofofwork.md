@@ -1,22 +1,22 @@
-[@iota-pico/pow-wasm](../README.md) > [CurlProofOfWork](../classes/curlproofofwork.md)
+[@iota-pico/pow-wasm](../README.md) > [ProofOfWork](../classes/proofofwork.md)
 
 
 
-# Class: CurlProofOfWork
+# Class: ProofOfWork
 
 
-CurlProofOfWork implementation using WebAssembly.
+ProofOfWork implementation using WebAssembly.
 
 ## Implements
 
-* `ICurlProofOfWork`
+* `IProofOfWork`
 
 ## Index
 
 ### Methods
 
-* [initialize](curlproofofwork.md#initialize)
-* [pow](curlproofofwork.md#pow)
+* [initialize](proofofwork.md#initialize)
+* [pow](proofofwork.md#pow)
 
 
 
@@ -30,7 +30,7 @@ CurlProofOfWork implementation using WebAssembly.
 
 
 
-*Defined in [curlProofOfWork.ts:20](https://github.com/iotaeco/iota-pico-pow-wasm/blob/44857bd/src/curlProofOfWork.ts#L20)*
+*Defined in proofOfWork.ts:20*
 
 
 
@@ -55,7 +55,7 @@ ___
 
 
 
-*Defined in [curlProofOfWork.ts:47](https://github.com/iotaeco/iota-pico-pow-wasm/blob/44857bd/src/curlProofOfWork.ts#L47)*
+*Defined in proofOfWork.ts:47*
 
 
 

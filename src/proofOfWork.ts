@@ -1,15 +1,15 @@
 /// <reference types="emscripten" />
-import { CoreError } from "@iota-pico/core/dist/error/coreError";
 import { NumberHelper } from "@iota-pico/core/dist/helpers/numberHelper";
-import { ICurlProofOfWork } from "@iota-pico/crypto/dist/interfaces/ICurlProofOfWork";
+import { CryptoError } from "@iota-pico/crypto/dist/error/cryptoError";
+import { IProofOfWork } from "@iota-pico/crypto/dist/interfaces/IProofOfWork";
 import { Trytes } from "@iota-pico/data/dist/data/trytes";
 // @ts-ignore
 import iotaPicoPowWasm from "../wasm/iota-pico-pow-wasm";
 
 /**
- * CurlProofOfWork implementation using WebAssembly.
+ * ProofOfWork implementation using WebAssembly.
  */
-export class CurlProofOfWork implements ICurlProofOfWork {
+export class ProofOfWork implements IProofOfWork {
     /* @internal */
     private _ccurlPow: (trytes: string, minWeightMagnitude: number) => string;
 
@@ -20,7 +20,7 @@ export class CurlProofOfWork implements ICurlProofOfWork {
     public async initialize(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
             if (typeof WebAssembly === undefined) {
-                reject(new CoreError("No WebAssembly support detected"));
+                reject(new CryptoError("No WebAssembly support detected"));
             }
 
             const module: any = {};
@@ -33,7 +33,7 @@ export class CurlProofOfWork implements ICurlProofOfWork {
             try {
                 iotaPicoPowWasm(module);
             } catch (err) {
-                reject(new CoreError("There was a problem intializing the WebAssembly Module", undefined, err));
+                reject(new CryptoError("There was a problem intializing the WebAssembly Module", undefined, err));
             }
         });
     }
@@ -48,15 +48,15 @@ export class CurlProofOfWork implements ICurlProofOfWork {
         Promise<Trytes> {
         return new Promise<Trytes>((resolve, reject) => {
             if (trytes === undefined || trytes === null) {
-                throw new CoreError("Trytes can not be null or undefined");
+                throw new CryptoError("Trytes can not be null or undefined");
             }
             if (!NumberHelper.isInteger(minWeightMagnitude)) {
-                throw new CoreError("The minWeightMagnitude value is not an integer");
+                throw new CryptoError("The minWeightMagnitude value is not an integer");
             }
 
             const result = this._ccurlPow(trytes.toString(), minWeightMagnitude);
 
-            resolve(Trytes.create(result));
+            resolve(Trytes.fromString(result));
         });
     }
 }
