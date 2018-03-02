@@ -30,7 +30,7 @@ ProofOfWork implementation using WebAssembly.
 
 
 
-*Defined in proofOfWork.ts:20*
+*Defined in [proofOfWork.ts:21](https://github.com/iotaeco/iota-pico-pow-wasm/blob/1e319ac/src/proofOfWork.ts#L21)*
 
 
 
@@ -55,7 +55,7 @@ ___
 
 
 
-*Defined in proofOfWork.ts:47*
+*Defined in [proofOfWork.ts:48](https://github.com/iotaeco/iota-pico-pow-wasm/blob/1e319ac/src/proofOfWork.ts#L48)*
 
 
 
