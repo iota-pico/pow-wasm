@@ -8,13 +8,31 @@ import { Hash } from "@iota-pico/data/dist/data/hash";
 import { Trytes } from "@iota-pico/data/dist/data/trytes";
 // @ts-ignore
 import iotaPicoPowWasm from "../wasm/iota-pico-pow-wasm";
+import { IWebPlatform } from "./IWebPlatform";
 
 /**
  * ProofOfWork implementation using WebAssembly.
  */
 export class ProofOfWork implements IProofOfWork {
     /* @internal */
+    private readonly _webPlatform: IWebPlatform;
+
+    /* @internal */
     private _ccurlPow: (trytes: string, minWeightMagnitude: number) => string;
+
+    /**
+     * Create a new instance of ProofOfWork.
+     */
+    constructor(webPlatform?: IWebPlatform) {
+        if (ObjectHelper.isEmpty(webPlatform)) {
+            this._webPlatform = {
+                webAssemblyType: typeof WebAssembly,
+                wasmModuleLoader: iotaPicoPowWasm
+            };
+        } else {
+            this._webPlatform = webPlatform;
+        }
+    }
 
     /**
      * Allow the proof of work to perform any initialization.
@@ -22,7 +40,7 @@ export class ProofOfWork implements IProofOfWork {
      */
     public async initialize(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            if (ObjectHelper.isEmpty(typeof WebAssembly)) {
+            if (ObjectHelper.isEmpty(this._webPlatform.webAssemblyType) || this._webPlatform.webAssemblyType === "undefined") {
                 reject(new CryptoError("No WebAssembly support detected"));
             }
 
@@ -34,7 +52,7 @@ export class ProofOfWork implements IProofOfWork {
             };
 
             try {
-                iotaPicoPowWasm(module);
+                this._webPlatform.wasmModuleLoader(module);
             } catch (err) {
                 reject(new CryptoError("There was a problem intializing the WebAssembly Module", undefined, err));
             }
@@ -69,9 +87,13 @@ export class ProofOfWork implements IProofOfWork {
                 throw new CryptoError("The minWeightMagnitude must be > 0");
             }
 
-            const result = this._ccurlPow(trytes[0].toString(), minWeightMagnitude);
+            try {
+                const result = this._ccurlPow(trytes[0].toString(), minWeightMagnitude);
 
-            resolve([ Trytes.fromString(result) ]);
+                resolve([ Trytes.fromString(result) ]);
+            } catch (err) {
+                reject(err);
+            }
         });
     }
 }

@@ -10,5 +10,10 @@
 * [ProofOfWork](classes/proofofwork.md)
 
 
+### Interfaces
+
+* [IWebPlatform](interfaces/iwebplatform.md)
+
+
 
 ---
