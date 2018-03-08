@@ -2,8 +2,8 @@
     "name": "@iota-pico/pow-wasm",
     "version": "0.7.0",
     "description": "IOTA Pico Framework Proof Of Work WebAssembly",
-    "main": "dist/index.js",
     "typings": "dist/index.d.ts",
+    "main": "dist/index.js",
     "keywords": [
         "iota",
         "pico",
@@ -52,6 +52,7 @@
         "@iota-pico/data": "^0.7.0"
     },
     "devDependencies": {
+        "@babel/runtime": "^7.0.0-beta.40",
         "@types/chai": "^4.1.1",
         "@types/emscripten": "0.0.31",
         "@types/mocha": "^2.2.46",
