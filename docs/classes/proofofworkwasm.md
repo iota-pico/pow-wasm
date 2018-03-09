@@ -1,8 +1,8 @@
-[@iota-pico/pow-wasm](../README.md) > [ProofOfWork](../classes/proofofwork.md)
+[@iota-pico/pow-wasm](../README.md) > [ProofOfWorkWasm](../classes/proofofworkwasm.md)
 
 
 
-# Class: ProofOfWork
+# Class: ProofOfWorkWasm
 
 
 ProofOfWork implementation using WebAssembly.
@@ -15,14 +15,14 @@ ProofOfWork implementation using WebAssembly.
 
 ### Constructors
 
-* [constructor](proofofwork.md#constructor)
+* [constructor](proofofworkwasm.md#constructor)
 
 
 ### Methods
 
-* [initialize](proofofwork.md#initialize)
-* [performsSingle](proofofwork.md#performssingle)
-* [pow](proofofwork.md#pow)
+* [initialize](proofofworkwasm.md#initialize)
+* [performsSingle](proofofworkwasm.md#performssingle)
+* [pow](proofofworkwasm.md#pow)
 
 
 
@@ -31,10 +31,10 @@ ProofOfWork implementation using WebAssembly.
 <a id="constructor"></a>
 
 
-### ⊕ **new ProofOfWork**(webPlatform?: *[IWebPlatform](../interfaces/iwebplatform.md)*): [ProofOfWork](proofofwork.md)
+### ⊕ **new ProofOfWorkWasm**(webPlatform?: *[IWebPlatform](../interfaces/iwebplatform.md)*): [ProofOfWorkWasm](proofofworkwasm.md)
 
 
-*Defined in [proofOfWork.ts:21](https://github.com/iotaeco/iota-pico-pow-wasm/blob/d567f8d/src/proofOfWork.ts#L21)*
+*Defined in proofOfWorkWasm.ts:21*
 
 
 
@@ -45,13 +45,13 @@ Create a new instance of ProofOfWork.
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| webPlatform | [IWebPlatform](../interfaces/iwebplatform.md)   |  - |
+| webPlatform | [IWebPlatform](../interfaces/iwebplatform.md)   |  Provides platform specific functions, optional mostly used for testing. |
 
 
 
 
 
-**Returns:** [ProofOfWork](proofofwork.md)
+**Returns:** [ProofOfWorkWasm](proofofworkwasm.md)
 
 ---
 
@@ -65,7 +65,7 @@ Create a new instance of ProofOfWork.
 
 
 
-*Defined in [proofOfWork.ts:41](https://github.com/iotaeco/iota-pico-pow-wasm/blob/d567f8d/src/proofOfWork.ts#L41)*
+*Defined in proofOfWorkWasm.ts:42*
 
 
 
@@ -90,7 +90,7 @@ ___
 
 
 
-*Defined in [proofOfWork.ts:66](https://github.com/iotaeco/iota-pico-pow-wasm/blob/d567f8d/src/proofOfWork.ts#L66)*
+*Defined in proofOfWorkWasm.ts:67*
 
 
 
@@ -117,7 +117,7 @@ ___
 
 
 
-*Defined in [proofOfWork.ts:78](https://github.com/iotaeco/iota-pico-pow-wasm/blob/d567f8d/src/proofOfWork.ts#L78)*
+*Defined in proofOfWorkWasm.ts:79*
 
 
 

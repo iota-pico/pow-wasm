@@ -13,7 +13,7 @@ import { IWebPlatform } from "./IWebPlatform";
 /**
  * ProofOfWork implementation using WebAssembly.
  */
-export class ProofOfWork implements IProofOfWork {
+export class ProofOfWorkWasm implements IProofOfWork {
     /* @internal */
     private readonly _webPlatform: IWebPlatform;
 
@@ -22,6 +22,7 @@ export class ProofOfWork implements IProofOfWork {
 
     /**
      * Create a new instance of ProofOfWork.
+     * @param webPlatform Provides platform specific functions, optional mostly used for testing.
      */
     constructor(webPlatform?: IWebPlatform) {
         if (ObjectHelper.isEmpty(webPlatform)) {

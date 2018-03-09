@@ -5,9 +5,10 @@ import { IWebPlatform } from "./IWebPlatform";
 /**
  * ProofOfWork implementation using WebAssembly.
  */
-export declare class ProofOfWork implements IProofOfWork {
+export declare class ProofOfWorkWasm implements IProofOfWork {
     /**
      * Create a new instance of ProofOfWork.
+     * @param webPlatform Provides platform specific functions, optional mostly used for testing.
      */
     constructor(webPlatform?: IWebPlatform);
     /**

@@ -7,7 +7,7 @@
 
 ### Classes
 
-* [ProofOfWork](classes/proofofwork.md)
+* [ProofOfWorkWasm](classes/proofofworkwasm.md)
 
 
 ### Interfaces
