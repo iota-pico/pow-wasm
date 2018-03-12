@@ -15,7 +15,7 @@ IWebPlatform interface.
 
 **●  webAssemblyType**:  *`string`* 
 
-*Defined in [IWebPlatform.ts:5](https://github.com/iotaeco/iota-pico-pow-wasm/blob/ce4a702/src/IWebPlatform.ts#L5)*
+*Defined in [IWebPlatform.ts:5](https://github.com/iotaeco/iota-pico-pow-wasm/blob/fa5a962/src/IWebPlatform.ts#L5)*
 
 
 
@@ -33,7 +33,7 @@ ___
 
 
 
-*Defined in [IWebPlatform.ts:6](https://github.com/iotaeco/iota-pico-pow-wasm/blob/ce4a702/src/IWebPlatform.ts#L6)*
+*Defined in [IWebPlatform.ts:6](https://github.com/iotaeco/iota-pico-pow-wasm/blob/fa5a962/src/IWebPlatform.ts#L6)*
 
 
 
