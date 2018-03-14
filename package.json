@@ -1,6 +1,6 @@
 {
     "name": "@iota-pico/pow-wasm",
-    "version": "0.7.0",
+    "version": "0.9.0",
     "description": "IOTA Pico Framework Proof Of Work WebAssembly",
     "typings": "dist/index.d.ts",
     "main": "dist/index.js",
@@ -47,9 +47,9 @@
         "wasm-docker": "docker exec -it emscripten emcc src-c/ccurl.c src-c/curl.c src-c/pearl_diver.c src-c/util/converter.c -o wasm/iota-pico-pow-wasm.js -s USE_PTHREADS=0 -s MODULARIZE=1 -s WASM=1 -s SINGLE_FILE=1 -s EXPORTED_FUNCTIONS='[\"_ccurl_pow\"]' -s EXTRA_EXPORTED_RUNTIME_METHODS='[\"ccall\", \"cwrap\"]'"
     },
     "dependencies": {
-        "@iota-pico/core": "^0.7.0",
-        "@iota-pico/crypto": "^0.7.0",
-        "@iota-pico/data": "^0.7.0"
+        "@iota-pico/core": "^0.9.0",
+        "@iota-pico/crypto": "^0.9.0",
+        "@iota-pico/data": "^0.9.0"
     },
     "devDependencies": {
         "@babel/runtime": "^7.0.0-beta.40",
