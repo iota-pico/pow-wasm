@@ -34,7 +34,7 @@ ProofOfWork implementation using WebAssembly.
 ### ⊕ **new ProofOfWorkWasm**(webPlatform?: *[IWebPlatform](../interfaces/iwebplatform.md)*): [ProofOfWorkWasm](proofofworkwasm.md)
 
 
-*Defined in [proofOfWorkWasm.ts:21](https://github.com/iotaeco/iota-pico-pow-wasm/blob/d4f59b3/src/proofOfWorkWasm.ts#L21)*
+*Defined in [proofOfWorkWasm.ts:21](https://github.com/iotaeco/iota-pico-pow-wasm/blob/5f733ce/src/proofOfWorkWasm.ts#L21)*
 
 
 
@@ -65,7 +65,7 @@ Create a new instance of ProofOfWork.
 
 
 
-*Defined in [proofOfWorkWasm.ts:42](https://github.com/iotaeco/iota-pico-pow-wasm/blob/d4f59b3/src/proofOfWorkWasm.ts#L42)*
+*Defined in [proofOfWorkWasm.ts:42](https://github.com/iotaeco/iota-pico-pow-wasm/blob/5f733ce/src/proofOfWorkWasm.ts#L42)*
 
 
 
@@ -90,7 +90,7 @@ ___
 
 
 
-*Defined in [proofOfWorkWasm.ts:67](https://github.com/iotaeco/iota-pico-pow-wasm/blob/d4f59b3/src/proofOfWorkWasm.ts#L67)*
+*Defined in [proofOfWorkWasm.ts:67](https://github.com/iotaeco/iota-pico-pow-wasm/blob/5f733ce/src/proofOfWorkWasm.ts#L67)*
 
 
 
@@ -117,7 +117,7 @@ ___
 
 
 
-*Defined in [proofOfWorkWasm.ts:79](https://github.com/iotaeco/iota-pico-pow-wasm/blob/d4f59b3/src/proofOfWorkWasm.ts#L79)*
+*Defined in [proofOfWorkWasm.ts:79](https://github.com/iotaeco/iota-pico-pow-wasm/blob/5f733ce/src/proofOfWorkWasm.ts#L79)*
 
 
 
