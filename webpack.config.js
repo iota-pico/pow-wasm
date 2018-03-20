@@ -30,12 +30,6 @@ module.exports = {
     },
     target: "web",
     externals: {
-        "big-integer": {
-            "amd": "big-integer",
-            "commonjs": "big-integer",
-            "commonjs2": "big-integer",
-            "root": "bigInt"
-        }
     },
     //mode: isProd ? "production" : "development",
     devtool: isProd ? undefined : "inline-source-map",
