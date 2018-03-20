@@ -7,6 +7,19 @@
 
 ProofOfWork implementation using WebAssembly.
 
+## Hierarchy
+
+
+ `ProofOfWorkBase`
+
+**↳ ProofOfWorkWasm**
+
+
+
+
+
+
+
 ## Implements
 
 * `IProofOfWork`
@@ -18,11 +31,16 @@ ProofOfWork implementation using WebAssembly.
 * [constructor](proofofworkwasm.md#constructor)
 
 
+### Properties
+
+* [MAX_TIMESTAMP_VALUE](proofofworkwasm.md#max_timestamp_value)
+
+
 ### Methods
 
 * [initialize](proofofworkwasm.md#initialize)
-* [performsSingle](proofofworkwasm.md#performssingle)
 * [pow](proofofworkwasm.md#pow)
+* [singlePow](proofofworkwasm.md#singlepow)
 
 
 
@@ -31,10 +49,12 @@ ProofOfWork implementation using WebAssembly.
 <a id="constructor"></a>
 
 
-### ⊕ **new ProofOfWorkWasm**(webPlatform?: *[IWebPlatform](../interfaces/iwebplatform.md)*): [ProofOfWorkWasm](proofofworkwasm.md)
+### ⊕ **new ProofOfWorkWasm**(webPlatform?: *[IWebPlatform](../interfaces/iwebplatform.md)*, timeService?: *`ITimeService`*): [ProofOfWorkWasm](proofofworkwasm.md)
 
 
-*Defined in [proofOfWorkWasm.ts:21](https://github.com/iotaeco/iota-pico-pow-wasm/blob/2e927b8/src/proofOfWorkWasm.ts#L21)*
+*Overrides ProofOfWorkBase.__constructor*
+
+*Defined in [proofOfWorkWasm.ts:20](https://github.com/iotaeco/iota-pico-pow-wasm/blob/e29e477/src/proofOfWorkWasm.ts#L20)*
 
 
 
@@ -46,6 +66,7 @@ Create a new instance of ProofOfWork.
 | Param | Type | Description |
 | ------ | ------ | ------ |
 | webPlatform | [IWebPlatform](../interfaces/iwebplatform.md)   |  Provides platform specific functions, optional mostly used for testing. |
+| timeService | `ITimeService`   |  Service to get the time for attachments. |
 
 
 
@@ -54,6 +75,27 @@ Create a new instance of ProofOfWork.
 **Returns:** [ProofOfWorkWasm](proofofworkwasm.md)
 
 ---
+
+
+## Properties
+<a id="max_timestamp_value"></a>
+
+### «Static» MAX_TIMESTAMP_VALUE
+
+**●  MAX_TIMESTAMP_VALUE**:  *`number`* 
+
+*Inherited from ProofOfWorkBase.MAX_TIMESTAMP_VALUE*
+
+*Defined in D:/Workarea/iotaeco/iota-pico-pow-wasm/node_modules/@iota-pico/crypto/dist/proofOfWork/proofOfWorkBase.d.ts:12*
+
+
+
+The maximum timestamp value used in proof of work.
+
+
+
+
+___
 
 
 ## Methods
@@ -65,7 +107,9 @@ Create a new instance of ProofOfWork.
 
 
 
-*Defined in [proofOfWorkWasm.ts:42](https://github.com/iotaeco/iota-pico-pow-wasm/blob/2e927b8/src/proofOfWorkWasm.ts#L42)*
+*Overrides ProofOfWorkBase.initialize*
+
+*Defined in [proofOfWorkWasm.ts:44](https://github.com/iotaeco/iota-pico-pow-wasm/blob/e29e477/src/proofOfWorkWasm.ts#L44)*
 
 
 
@@ -82,33 +126,6 @@ Allow the proof of work to perform any initialization. Will throw an exception i
 
 ___
 
-<a id="performssingle"></a>
-
-###  performsSingle
-
-► **performsSingle**(): `boolean`
-
-
-
-*Defined in [proofOfWorkWasm.ts:67](https://github.com/iotaeco/iota-pico-pow-wasm/blob/2e927b8/src/proofOfWorkWasm.ts#L67)*
-
-
-
-Performs single conversion per pow call.
-
-
-
-
-**Returns:** `boolean`
-True if pow only does one conversion.
-
-
-
-
-
-
-___
-
 <a id="pow"></a>
 
 ###  pow
@@ -117,7 +134,9 @@ ___
 
 
 
-*Defined in [proofOfWorkWasm.ts:79](https://github.com/iotaeco/iota-pico-pow-wasm/blob/2e927b8/src/proofOfWorkWasm.ts#L79)*
+*Inherited from ProofOfWorkBase.pow*
+
+*Defined in D:/Workarea/iotaeco/iota-pico-pow-wasm/node_modules/@iota-pico/crypto/dist/proofOfWork/proofOfWorkBase.d.ts:31*
 
 
 
@@ -138,6 +157,44 @@ Perform a proof of work on the data.
 
 
 **Returns:** `Promise`.<`Trytes`[]>
+The trytes produced by the proof of work.
+
+
+
+
+
+
+___
+
+<a id="singlepow"></a>
+
+###  singlePow
+
+► **singlePow**(trytes: *`Trytes`*, minWeightMagnitude: *`number`*): `Promise`.<`Trytes`>
+
+
+
+*Overrides ProofOfWorkBase.singlePow*
+
+*Defined in [proofOfWorkWasm.ts:72](https://github.com/iotaeco/iota-pico-pow-wasm/blob/e29e477/src/proofOfWorkWasm.ts#L72)*
+
+
+
+Perform a proof of work on a single item.
+
+
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| trytes | `Trytes`   |  The trytes to perform the pow on. |
+| minWeightMagnitude | `number`   |  The minimum weight magnitude. |
+
+
+
+
+
+**Returns:** `Promise`.<`Trytes`>
 The trytes produced by the proof of work.
 
 

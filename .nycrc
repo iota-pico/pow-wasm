@@ -3,12 +3,8 @@
         ".ts",
         ".tsx"
     ],
-    "exclude": [
-        "**/*.d.ts",
-        "dist/**/*",
-        "coverage/**/*",
-        "test/**/*",
-        "wasm/**/*"
+    "include": [
+        "src/**/*"
     ],
     "reporter": [
         "text",

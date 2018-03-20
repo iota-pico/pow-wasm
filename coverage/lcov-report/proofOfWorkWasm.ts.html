@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>32/32</span>
+        <span class='fraction'>33/33</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>7/7</span>
+        <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>32/32</span>
+        <span class='fraction'>33/33</span>
       </div>
     </div>
     <p class="quiet">
@@ -139,20 +139,12 @@
 <a name='L91'></a><a href='#L91'>91</a>
 <a name='L92'></a><a href='#L92'>92</a>
 <a name='L93'></a><a href='#L93'>93</a>
-<a name='L94'></a><a href='#L94'>94</a>
-<a name='L95'></a><a href='#L95'>95</a>
-<a name='L96'></a><a href='#L96'>96</a>
-<a name='L97'></a><a href='#L97'>97</a>
-<a name='L98'></a><a href='#L98'>98</a>
-<a name='L99'></a><a href='#L99'>99</a>
-<a name='L100'></a><a href='#L100'>100</a>
-<a name='L101'></a><a href='#L101'>101</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -173,8 +165,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,6 +183,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -204,16 +200,6 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -247,12 +233,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/// &lt;reference types="emscripten" /&gt;
-import { ArrayHelper } from "@iota-pico/core/dist/helpers/arrayHelper";
 import { NumberHelper } from "@iota-pico/core/dist/helpers/numberHelper";
 import { ObjectHelper } from "@iota-pico/core/dist/helpers/objectHelper";
+import { ITimeService } from "@iota-pico/core/dist/interfaces/ITimeService";
 import { CryptoError } from "@iota-pico/crypto/dist/error/cryptoError";
-import { IProofOfWork } from "@iota-pico/crypto/dist/interfaces/IProofOfWork";
-import { Hash } from "@iota-pico/data/dist/data/hash";
+import { ProofOfWorkBase } from "@iota-pico/crypto/dist/proofOfWork/proofOfWorkBase";
 import { Trytes } from "@iota-pico/data/dist/data/trytes";
 // @ts-ignore
 import iotaPicoPowWasm from "../wasm/iota-pico-pow-wasm";
@@ -261,7 +246,7 @@ import { IWebPlatform } from "./IWebPlatform";
 /**
  * ProofOfWork implementation using WebAssembly.
  */
-export class ProofOfWorkWasm implements IProofOfWork {
+export class ProofOfWorkWasm extends ProofOfWorkBase {
     /* @internal */
     private readonly _webPlatform: IWebPlatform;
 &nbsp;
@@ -271,8 +256,11 @@ export class ProofOfWorkWasm implements IProofOfWork {
     /**
      * Create a new instance of ProofOfWork.
      * @param webPlatform Provides platform specific functions, optional mostly used for testing.
+     * @param timeService Service to get the time for attachments.
      */
-    constructor(webPlatform?: IWebPlatform) {
+    constructor(webPlatform?: IWebPlatform, timeService?: ITimeService) {
+        super(timeService);
+&nbsp;
         if (ObjectHelper.isEmpty(webPlatform)) {
             this._webPlatform = {
                 webAssemblyType: typeof WebAssembly,
@@ -288,7 +276,8 @@ export class ProofOfWorkWasm implements IProofOfWork {
      * Will throw an exception if the implementation is not supported.
      */
     public async initialize(): Promise&lt;void&gt; {
-        return new Promise&lt;void&gt;((resolve, reject) =&gt; {
+        await super.initialize();
+        return new Promise&lt;void&gt;(async (resolve, reject) =&gt; {
             if (ObjectHelper.isEmpty(this._webPlatform.webAssemblyType) || this._webPlatform.webAssemblyType === "undefined") {
                 reject(new CryptoError("No WebAssembly support detected"));
             }
@@ -309,37 +298,27 @@ export class ProofOfWorkWasm implements IProofOfWork {
     }
 &nbsp;
     /**
-     * Performs single conversion per pow call.
-     * @returns True if pow only does one conversion.
-     */
-    public performsSingle(): boolean {
-        return true;
-    }
-&nbsp;
-    /**
-     * Perform a proof of work on the data.
-     * @param trunkTransaction The trunkTransaction to use for the pow.
-     * @param branchTransaction The branchTransaction to use for the pow.
+     * Perform a proof of work on a single item.
      * @param trytes The trytes to perform the pow on.
      * @param minWeightMagnitude The minimum weight magnitude.
      * @returns The trytes produced by the proof of work.
      */
-    public async pow(trunkTransaction: Hash, branchTransaction: Hash, trytes: Trytes[], minWeightMagnitude: number): Promise&lt;Trytes[]&gt; {
-        return new Promise&lt;Trytes[]&gt;((resolve, reject) =&gt; {
+    public async singlePow(trytes: Trytes, minWeightMagnitude: number): Promise&lt;Trytes&gt; {
+        return new Promise&lt;Trytes&gt;((resolve, reject) =&gt; {
             if (ObjectHelper.isEmpty(this._ccurlPow)) {
                 throw new CryptoError("WebAssembly not loaded, have you called initialize");
             }
-            if (!ArrayHelper.isTyped(trytes, Trytes)) {
-                throw new CryptoError("The trytes must be an array of type Trytes");
+            if (!ObjectHelper.isType(trytes, Trytes)) {
+                throw new CryptoError("The trytes must be an object of type Trytes");
             }
             if (!NumberHelper.isInteger(minWeightMagnitude) || minWeightMagnitude &lt;= 0) {
                 throw new CryptoError("The minWeightMagnitude must be &gt; 0");
             }
 &nbsp;
             try {
-                const result = this._ccurlPow(trytes[0].toString(), minWeightMagnitude);
+                const result = this._ccurlPow(trytes.toString(), minWeightMagnitude);
 &nbsp;
-                resolve([ Trytes.fromString(result) ]);
+                resolve(Trytes.fromString(result));
             } catch (err) {
                 reject(err);
             }
@@ -352,7 +331,7 @@ export class ProofOfWorkWasm implements IProofOfWork {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Mar 19 2018 09:26:38 GMT+0300 (Turkey Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Mar 20 2018 12:45:26 GMT+0300 (Turkey Standard Time)
 </div>
 </div>
 <script src="prettify.js"></script>
