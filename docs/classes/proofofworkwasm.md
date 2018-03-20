@@ -54,7 +54,7 @@ ProofOfWork implementation using WebAssembly.
 
 *Overrides ProofOfWorkBase.__constructor*
 
-*Defined in [proofOfWorkWasm.ts:20](https://github.com/iotaeco/iota-pico-pow-wasm/blob/e29e477/src/proofOfWorkWasm.ts#L20)*
+*Defined in [proofOfWorkWasm.ts:20](https://github.com/iotaeco/iota-pico-pow-wasm/blob/cad5c95/src/proofOfWorkWasm.ts#L20)*
 
 
 
@@ -109,7 +109,7 @@ ___
 
 *Overrides ProofOfWorkBase.initialize*
 
-*Defined in [proofOfWorkWasm.ts:44](https://github.com/iotaeco/iota-pico-pow-wasm/blob/e29e477/src/proofOfWorkWasm.ts#L44)*
+*Defined in [proofOfWorkWasm.ts:44](https://github.com/iotaeco/iota-pico-pow-wasm/blob/cad5c95/src/proofOfWorkWasm.ts#L44)*
 
 
 
@@ -176,7 +176,7 @@ ___
 
 *Overrides ProofOfWorkBase.singlePow*
 
-*Defined in [proofOfWorkWasm.ts:72](https://github.com/iotaeco/iota-pico-pow-wasm/blob/e29e477/src/proofOfWorkWasm.ts#L72)*
+*Defined in [proofOfWorkWasm.ts:72](https://github.com/iotaeco/iota-pico-pow-wasm/blob/cad5c95/src/proofOfWorkWasm.ts#L72)*
 
 
 
