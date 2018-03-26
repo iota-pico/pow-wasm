@@ -3,7 +3,7 @@
     "version": "0.9.2",
     "description": "IOTA Pico Framework Proof Of Work WebAssembly",
     "typings": "dist/index.d.ts",
-    "main": "pkg/iota-pico-pow-wasm.js",
+    "main": "dist/index.js",
     "module": "dist/index.js",
     "keywords": [
         "iota",
