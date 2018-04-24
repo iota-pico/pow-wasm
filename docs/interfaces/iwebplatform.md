@@ -1,41 +1,46 @@
 [@iota-pico/pow-wasm](../README.md) > [IWebPlatform](../interfaces/iwebplatform.md)
 
-
-
 # Interface: IWebPlatform
-
 
 IWebPlatform interface.
 
+## Hierarchy
+
+**IWebPlatform**
+
+## Index
+
+### Properties
+
+* [webAssemblyType](iwebplatform.md#webassemblytype)
+
+### Methods
+
+* [wasmModuleLoader](iwebplatform.md#wasmmoduleloader)
+
+---
 
 ## Properties
+
 <a id="webassemblytype"></a>
 
 ###  webAssemblyType
 
 **●  webAssemblyType**:  *`string`* 
 
-*Defined in [IWebPlatform.ts:5](https://github.com/iotaeco/iota-pico-pow-wasm/blob/a9eda7b/src/IWebPlatform.ts#L5)*
-
-
-
-
+*Defined in [IWebPlatform.ts:5](https://github.com/iota-pico/pow-wasm/blob/5153d4b/src/IWebPlatform.ts#L5)*
 
 ___
 
-
 ## Methods
+
 <a id="wasmmoduleloader"></a>
 
 ###  wasmModuleLoader
 
-► **wasmModuleLoader**(module: *`any`*): `void`
+▸ **wasmModuleLoader**(module: *`any`*): `void`
 
-
-
-*Defined in [IWebPlatform.ts:6](https://github.com/iotaeco/iota-pico-pow-wasm/blob/a9eda7b/src/IWebPlatform.ts#L6)*
-
-
+*Defined in [IWebPlatform.ts:6](https://github.com/iota-pico/pow-wasm/blob/5153d4b/src/IWebPlatform.ts#L6)*
 
 **Parameters:**
 
@@ -43,16 +48,7 @@ ___
 | ------ | ------ | ------ |
 | module | `any`   |  - |
 
-
-
-
-
 **Returns:** `void`
 
-
-
-
-
 ___
-
 

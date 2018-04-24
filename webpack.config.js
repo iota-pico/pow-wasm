@@ -26,12 +26,13 @@ module.exports = {
             amd: packageJson.name,
             commonjs: packageJson.name
         },
-        umdNamedDefine: true
+        umdNamedDefine: true,
+        globalObject: 'typeof self !== \'undefined\' ? self : this'
     },
     target: "web",
     externals: {
     },
-    //mode: isProd ? "production" : "development",
+    mode: isProd ? "production" : "development",
     devtool: isProd ? undefined : "inline-source-map",
     module: {
         rules: [

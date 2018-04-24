@@ -1,6 +1,4 @@
 
-
-
 #  @iota-pico/pow-wasm
 
 ## Index
@@ -9,11 +7,9 @@
 
 * [ProofOfWorkWasm](classes/proofofworkwasm.md)
 
-
 ### Interfaces
 
 * [IWebPlatform](interfaces/iwebplatform.md)
 
-
-
 ---
+
