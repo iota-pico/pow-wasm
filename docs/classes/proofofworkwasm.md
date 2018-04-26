@@ -40,7 +40,7 @@ ProofOfWork implementation using WebAssembly.
 
 *Overrides ProofOfWorkBase.__constructor*
 
-*Defined in [proofOfWorkWasm.ts:20](https://github.com/iota-pico/pow-wasm/blob/d4198ca/src/proofOfWorkWasm.ts#L20)*
+*Defined in [proofOfWorkWasm.ts:20](https://github.com/iota-pico/pow-wasm/blob/ae65685/src/proofOfWorkWasm.ts#L20)*
 
 Create a new instance of ProofOfWork.
 
@@ -81,11 +81,12 @@ ___
 
 *Overrides ProofOfWorkBase.initialize*
 
-*Defined in [proofOfWorkWasm.ts:44](https://github.com/iota-pico/pow-wasm/blob/d4198ca/src/proofOfWorkWasm.ts#L44)*
+*Defined in [proofOfWorkWasm.ts:45](https://github.com/iota-pico/pow-wasm/blob/ae65685/src/proofOfWorkWasm.ts#L45)*
 
 Allow the proof of work to perform any initialization. Will throw an exception if the implementation is not supported.
 
 **Returns:** `Promise`.<`void`>
+Promise.
 
 ___
 
@@ -97,7 +98,7 @@ ___
 
 *Inherited from ProofOfWorkBase.pow*
 
-*Defined in D:/Workarea/iota-pico/pow-wasm/node_modules/@iota-pico/crypto/dist/proofOfWork/proofOfWorkBase.d.ts:31*
+*Defined in D:/Workarea/iota-pico/pow-wasm/node_modules/@iota-pico/crypto/dist/proofOfWork/proofOfWorkBase.d.ts:32*
 
 Perform a proof of work on the data.
 
@@ -123,7 +124,7 @@ ___
 
 *Overrides ProofOfWorkBase.singlePow*
 
-*Defined in [proofOfWorkWasm.ts:72](https://github.com/iota-pico/pow-wasm/blob/d4198ca/src/proofOfWorkWasm.ts#L72)*
+*Defined in [proofOfWorkWasm.ts:73](https://github.com/iota-pico/pow-wasm/blob/ae65685/src/proofOfWorkWasm.ts#L73)*
 
 Perform a proof of work on a single item.
 
