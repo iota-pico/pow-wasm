@@ -26,9 +26,9 @@ IWebPlatform interface.
 
 ###  webAssemblyType
 
-**●  webAssemblyType**:  *`string`* 
+**● webAssemblyType**: *`string`*
 
-*Defined in [IWebPlatform.ts:5](https://github.com/iota-pico/pow-wasm/blob/ae65685/src/IWebPlatform.ts#L5)*
+*Defined in [IWebPlatform.ts:5](https://github.com/iota-pico/pow-wasm/blob/5b7ce92/src/IWebPlatform.ts#L5)*
 
 ___
 
@@ -40,13 +40,13 @@ ___
 
 ▸ **wasmModuleLoader**(module: *`any`*): `void`
 
-*Defined in [IWebPlatform.ts:6](https://github.com/iota-pico/pow-wasm/blob/ae65685/src/IWebPlatform.ts#L6)*
+*Defined in [IWebPlatform.ts:6](https://github.com/iota-pico/pow-wasm/blob/5b7ce92/src/IWebPlatform.ts#L6)*
 
 **Parameters:**
 
-| Param | Type | Description |
-| ------ | ------ | ------ |
-| module | `any`   |  - |
+| Param | Type |
+| ------ | ------ |
+| module | `any` | 
 
 **Returns:** `void`
 

@@ -27,7 +27,7 @@ install:
 script:
   - npm run wasm-docker || travis_terminate 1
   - npm run dist || travis_terminate 1
-#  - npm run security || travis_terminate 1
+  - npm run security || travis_terminate 1
   - npm run test-publish || travis_terminate 1
 cache:
   directories:

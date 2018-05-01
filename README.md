@@ -1,5 +1,5 @@
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/https://github.com/iota-pico/pow-wasm/master/LICENSE) [![Build Status](https://travis-ci.org/https://github.com/iota-pico/pow-wasm.svg?branch=master)](https://travis-ci.org/https://github.com/iota-pico/pow-wasm) [![NSP Status](https://nodesecurity.io/orgs/https://github.com/iota-pico/projects/fb44c1c5-846d-4257-a704-7caa5a0519ca/badge)](https://nodesecurity.io/orgs/https://github.com/iota-pico/projects/fb44c1c5-846d-4257-a704-7caa5a0519ca)
-[![Coveralls](https://img.shields.io/coveralls/https://github.com/iota-pico/pow-wasm.svg)](https://coveralls.io/github/https://github.com/iota-pico/pow-wasm)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/iota-pico/pow-wasm/master/LICENSE) [![Build Status](https://travis-ci.org/iota-pico/pow-wasm.svg?branch=master)](https://travis-ci.org/iota-pico/pow-wasm) [![NSP Status](https://nodesecurity.io/orgs/iota-pico/projects/fb44c1c5-846d-4257-a704-7caa5a0519ca/badge)](https://nodesecurity.io/orgs/iota-pico/projects/fb44c1c5-846d-4257-a704-7caa5a0519ca)
+[![Coveralls](https://img.shields.io/coveralls/iota-pico/pow-wasm.svg)](https://coveralls.io/github/iota-pico/pow-wasm)
 
 # IOTA Pico Framework Proof Of Work for WebAssembly (**Alpha**)
 
