@@ -42,7 +42,7 @@ ProofOfWork implementation using WebAssembly.
 
 *Overrides ProofOfWorkBase.__constructor*
 
-*Defined in [proofOfWorkWasm.ts:20](https://github.com/iota-pico/pow-wasm/blob/58e1227/src/proofOfWorkWasm.ts#L20)*
+*Defined in [proofOfWorkWasm.ts:20](https://github.com/iota-pico/pow-wasm/blob/bc18d29/src/proofOfWorkWasm.ts#L20)*
 
 Create a new instance of ProofOfWork.
 
@@ -83,7 +83,7 @@ ___
 
 *Overrides ProofOfWorkBase.initialize*
 
-*Defined in [proofOfWorkWasm.ts:45](https://github.com/iota-pico/pow-wasm/blob/58e1227/src/proofOfWorkWasm.ts#L45)*
+*Defined in [proofOfWorkWasm.ts:45](https://github.com/iota-pico/pow-wasm/blob/bc18d29/src/proofOfWorkWasm.ts#L45)*
 
 Allow the proof of work to perform any initialization. Will throw an exception if the implementation is not supported.
 
@@ -124,7 +124,7 @@ ___
 
 *Overrides ProofOfWorkBase.singlePow*
 
-*Defined in [proofOfWorkWasm.ts:73](https://github.com/iota-pico/pow-wasm/blob/58e1227/src/proofOfWorkWasm.ts#L73)*
+*Defined in [proofOfWorkWasm.ts:73](https://github.com/iota-pico/pow-wasm/blob/bc18d29/src/proofOfWorkWasm.ts#L73)*
 
 Perform a proof of work on a single item.
 
