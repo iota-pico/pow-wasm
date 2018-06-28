@@ -1,6 +1,6 @@
 {
     "name": "@iota-pico/pow-wasm",
-    "version": "0.9.6",
+    "version": "0.9.7",
     "description": "IOTA Pico Framework Proof Of Work WebAssembly",
     "typings": "dist/index.d.ts",
     "main": "dist/index.js",
@@ -51,9 +51,9 @@
         "wasm-docker": "docker exec -it emscripten emcc src-c/ccurl.c src-c/curl.c src-c/pearl_diver.c src-c/util/converter.c -o wasm/iota-pico-pow-wasm.js -s USE_PTHREADS=0 -s MODULARIZE=1 -s WASM=1 -s SINGLE_FILE=1 -s EXPORTED_FUNCTIONS='[\"_ccurl_pow\"]' -s EXTRA_EXPORTED_RUNTIME_METHODS='[\"ccall\", \"cwrap\"]'"
     },
     "dependencies": {
-        "@iota-pico/core": "^0.9.6",
-        "@iota-pico/crypto": "^0.9.6",
-        "@iota-pico/data": "^0.9.6"
+        "@iota-pico/core": "^0.9.7",
+        "@iota-pico/crypto": "^0.9.7",
+        "@iota-pico/data": "^0.9.7"
     },
     "devDependencies": {
         "@babel/core": "^7.0.0-beta.42",
@@ -62,8 +62,8 @@
         "@babel/runtime": "^7.0.0-beta.42",
         "@types/chai": "^4.1.4",
         "@types/emscripten": "^0.0.31",
-        "@types/mocha": "^5.2.0",
-        "babel-loader": "^8.0.0-beta.0",
+        "@types/mocha": "^5.2.3",
+        "babel-loader": "^8.0.0-beta.4",
         "babel-plugin-transform-builtin-extend": "^1.1.2",
         "chai": "^4.1.2",
         "coveralls": "^3.0.1",
@@ -75,15 +75,15 @@
         "nyc": "^12.0.2",
         "rimraf": "^2.6.2",
         "source-map-support": "^0.5.6",
-        "ts-node": "^6.0.3",
+        "ts-node": "^7.0.0",
         "tslint": "^5.10.0",
         "tslint-eslint-rules": "^5.3.1",
         "tslint-microsoft-contrib": "^5.0.3",
         "typedoc": "^0.11.1",
         "typedoc-plugin-markdown": "^1.1.10",
         "typescript": "^2.9.2",
-        "uglifyjs-webpack-plugin": "^1.2.5",
-        "webpack": "^4.8.3",
+        "uglifyjs-webpack-plugin": "^1.2.7",
+        "webpack": "^4.12.2",
         "webpack-cli": "^3.0.8"
     }
 }
