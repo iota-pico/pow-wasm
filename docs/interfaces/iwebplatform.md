@@ -44,7 +44,7 @@ ___
 
 **Parameters:**
 
-| Param | Type |
+| Name | Type |
 | ------ | ------ |
 | module | `any` |
 
