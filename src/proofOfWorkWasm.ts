@@ -6,6 +6,7 @@ import { CryptoError } from "@iota-pico/crypto/dist/error/cryptoError";
 import { ProofOfWorkBase } from "@iota-pico/crypto/dist/proofOfWork/proofOfWorkBase";
 import { Trytes } from "@iota-pico/data/dist/data/trytes";
 // @ts-ignore
+// tslint:disable-next-line:no-default-import
 import iotaPicoPowWasm from "../wasm/iota-pico-pow-wasm";
 import { IWebPlatform } from "./IWebPlatform";
 
